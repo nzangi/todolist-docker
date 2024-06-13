@@ -1,0 +1,38 @@
+services:
+  postgres:
+    container_name: todolist-db
+    image: postgres
+    environment:
+      POSTGRES_USER: nzangi
+      POSTGRES_PASSWORD: root
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5431:5432
+
+    networks:
+      todolist-net:
+    restart: unless-stopped
+
+
+  todolist-app:
+    container_name: todolist-app
+    image: todolist:latest
+
+    ports:
+      - 8222:8222
+    networks:
+      - todolist-net
+
+    depends_on:
+      - postgres
+
+
+
+
+networks:
+  todolist-net:
+    driver: bridge
+volumes:
+  postgres:
