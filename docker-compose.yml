@@ -19,6 +19,10 @@ services:
   todolist-app:
     container_name: todolist-app
     image: todolist:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://todolist-db:5432/todolist
+      SPRING_DATASOURCE_USERNAME: nzangi
+      SPRING_DATASOURCE_PASSWORD: root
 
     ports:
       - 8222:8222
@@ -27,8 +31,6 @@ services:
 
     depends_on:
       - postgres
-
-
 
 
 networks:
