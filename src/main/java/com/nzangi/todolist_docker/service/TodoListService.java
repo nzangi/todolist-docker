@@ -20,7 +20,9 @@ public class TodoListService {
     // create a todolist
     public TodoListModel createTodoList(TodoListModel todoListModel) {
         log.info("Creating a new todolist: {}, {}",todoListModel.getTodoListTitle(),todoListModel.getTodoListDescription());
-        return  todoListRepository.save(todoListModel) ;
+        TodoListModel todoListModel1 =  todoListRepository.save(todoListModel) ;
+
+        return todoListModel1;
 
     }
 
