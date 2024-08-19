@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = "com.nzangi.todolist_docker")
 @EntityScan(basePackages = "com.nzangi.todolist_docker.model")
 @EnableJpaRepositories(basePackages = "com.nzangi.todolist_docker.repository")
-
 @Slf4j
+
 public class TodolistDockerApplication {
 
 	public static void main(String[] args) {

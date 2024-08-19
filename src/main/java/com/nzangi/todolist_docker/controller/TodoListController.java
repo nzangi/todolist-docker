@@ -20,9 +20,13 @@ public class TodoListController {
     @PostMapping
     public ResponseEntity<TodoListModel> createTodoList(@RequestBody TodoListModel todoListModel){
         log.info("A post request was made");
-        TodoListModel todoListModel1 = todoListService.createTodoList(todoListModel);
-        return ResponseEntity.ok(todoListModel1);
+//        TodoListModel todoListModel1 = todoListService.createTodoList(todoListModel);
+//        return ResponseEntity.ok(todoListModel1);
+        return ResponseEntity.ok(todoListService.createTodoList(todoListModel));
+
     }
+
+
 
     // get all the todolist
     @GetMapping
