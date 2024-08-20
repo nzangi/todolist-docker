@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -43,8 +44,7 @@ class TodoListControllerTest {
     @Test
     void testCreateTodoList() throws Exception {
         TodoListModel todoListModel = new TodoListModel(1L, "Title", "Description");
-        when(todoListService.createTodoList(todoListModel)).thenReturn(todoListModel);
-        when(todoListService.createTodoList(any(TodoListModel.class))).thenReturn(new TodoListModel(1L, "Title", "Description"));
+        when(todoListService.createTodoList(any(TodoListModel.class))).thenReturn(todoListModel);
 
 
         mockMvc.perform(post("/todolist")
@@ -84,7 +84,7 @@ class TodoListControllerTest {
     @Test
     void testUpdateTodoList() throws Exception {
         TodoListModel todoListModel = new TodoListModel(1L, "Updated Title", "Updated Description");
-        when(todoListService.updateTodoList(1L, todoListModel)).thenReturn(todoListModel);
+        when(todoListService.updateTodoList(eq(1L),any(TodoListModel.class))).thenReturn(todoListModel);
 
         mockMvc.perform(put("/todolist/1")
                         .contentType(MediaType.APPLICATION_JSON)

@@ -38,7 +38,7 @@ services:
 
     depends_on:
       - postgres
-    entrypoint: ["sh", "-c", "wait-for-it.sh todolist-db:5432 -- ./start-app.sh"]:
+#    entrypoint: ["sh", "-c", "wait-for-it.sh todolist-db:5432 -- ./start-app.sh"]:
 
 
 networks:
